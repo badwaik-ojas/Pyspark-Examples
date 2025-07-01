@@ -1,0 +1,1 @@
+{  "person": {    "name": "John",    "age": 30,    "address": {      "city": "New York",      "zip": "10001"    },    "contacts": [      {        "type": "email",        "value": "john@example.com"      },      {        "type": "phone",        "value":"123-456-7890"      }    ]  }}

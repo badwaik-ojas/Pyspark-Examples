@@ -1,1 +1,4 @@
 .venv/
+resources/input_data.csv/
+resources/output_data/
+resources/save
