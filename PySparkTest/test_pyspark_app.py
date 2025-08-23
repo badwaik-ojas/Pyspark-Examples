@@ -1,9 +1,9 @@
 import pytest
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
-from pyspark_app import process_data
+from Spark.pyspark_app import process_data
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="session")
 def spark():
     # Create SparkSession for testing
     spark = SparkSession.builder \
@@ -24,7 +24,7 @@ def test_process_data(spark, tmpdir):
         ("Charlie", 45)
     ]
     input_path = "resources/input_data.csv"
-    spark.createDataFrame(input_data, ["name", "age"]).write.csv(input_path, header=True)
+    spark.createDataFrame(input_data, ["name", "age"]).write.csv(input_path, header=True, mode="overwrite")
 
     # Output path
     output_path = "resources/output_data"

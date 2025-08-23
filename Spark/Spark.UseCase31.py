@@ -26,4 +26,15 @@ df = spark.createDataFrame(data, columns)
 pivot_df = df.groupBy("Product").pivot("Country").agg(sum("Amount"))
 
 # Show the result
-pivot_df.show()
+#pivot_df.show()
+
+# Create Views
+df.createOrReplaceTempView("products")
+df1 = spark.sql("""
+        select * from 
+          (select Product, Amount, Country
+                from products) as products_temp
+                pivot(
+                        sum(Amount)
+                        for Country in ('China'))""")
+df1.show()

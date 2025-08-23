@@ -14,11 +14,11 @@ data = [
         ,[None,None,None,None ]
         ]
 df = spark.createDataFrame(data=data, schema=columns)
-#df.dropna(subset=["name"]).show() # default is how=any
-#print(df.dtypes)
-#print(df.first())
-#df.foreach(lambda x: print(x[1]))
-#df.orderBy(col("salary").desc()).show()
+df.dropna(subset=["name"]).show() # default is how=any
+print(df.dtypes)
+print(df.first())
+df.foreach(lambda x: print(x[1]))
+df.orderBy(col("salary").desc()).show()
 
 df.write.save(path="resources/save/", format="csv", mode="append")
 df.write.saveAsTable

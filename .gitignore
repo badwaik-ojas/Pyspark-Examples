@@ -1,4 +1,8 @@
 .venv/
-resources/input_data.csv/
-resources/output_data/
-resources/save
+resources/*
+.vscode/
+.python-version
+Spark/__pycache__/
+main.pytest
+.pytest_cache/
+PySparkTest/__pycache__/

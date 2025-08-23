@@ -45,6 +45,7 @@ data = [
 ]
 
 df = spark.createDataFrame(data=data, schema=schema)
+df.show()
 exploded_df = df.select("id", explode("attributes").alias("key", "value"))
 exploded_df_1 = df.select("id", explode("attributes").alias("key", "value"))
 exploded_df_1.show()

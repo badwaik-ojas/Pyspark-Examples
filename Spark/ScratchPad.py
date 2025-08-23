@@ -8,9 +8,11 @@ spark = SparkSession.builder \
     .appName("Filter Example") \
     .getOrCreate()
 
+print(spark.version)
 # Sample DataFrame creation
 data = [("Alice, How are you?", 25), ("Bob, How are you?", 30), ("Charlie, How are you?", 35)]
 columns = ["Name", "Age"]
+
 df = spark.createDataFrame(data, columns)
 
 # Show the DataFrame

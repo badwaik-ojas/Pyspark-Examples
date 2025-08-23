@@ -15,7 +15,7 @@ data = [(1,"John", "Doe", 28),
              (5,"Ojal",None, 30)]
 df = spark.createDataFrame(data, ["id","first_name", "last_name", "age"])
 
-df_isin = df.withColumn("isin", df["first_name"].isin("Ojas")) # returns true/false if the value is present
+df_isin = df.withColumn("isin", df["first_name"].isin(["Ojas"])) # returns true/false if the value is present
 df_isin.show()
 
 df_whnothwise = df.withColumn("w-o", when(df["first_name"] == "Ojas",True).otherwise(False))
